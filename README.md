@@ -42,9 +42,9 @@ This gives you access to examples that are not included to the *PyPI* package.
 ## Usage
 
 Input and output format for ***Morra*** is
-[*CONLL-U*](https://universaldependencies.org/format.html) when input or
+[*CoNLL-U*](https://universaldependencies.org/format.html) when input or
 output is a file, or
-[*Parsed CONLL-U*](https://github.com/fostroll/corpuscula/blob/master/doc/README_PARSED_CONLLU.md)
+[*Parsed CoNLL-U*](https://github.com/fostroll/corpuscula/blob/master/doc/README_PARSED_CONLLU.md)
 if it is an object. Also, it allows
 [***Corpuscula***'s corpora wrappers](https://github.com/fostroll/corpuscula/blob/master/doc/README_CORPORA.md)
 as input.

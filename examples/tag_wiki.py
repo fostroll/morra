@@ -6,7 +6,7 @@
 # License: BSD, see LICENSE for details
 """
 Example: Tag Wikipedia with UPOS and LEMMA fields. You need Wikipedia already
-tokenized and saved in CONLL-U format. You could do it with
+tokenized and saved in CoNLL-U format. You could do it with
 examples/tokenize_wiki.py from our Toxine project
 (https://github.com/fostroll/toxine).
 """

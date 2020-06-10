@@ -227,13 +227,13 @@ class MorphParser(BaseParser):
     def predict_pos(self, sentence, rev=False, inplace=True):
         """Tag the *sentence* with the POS tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param rev: if True, use Reversed POS tagger instead of generic
                     straight one
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         cdict = self._cdict
         model = self._pos_rev_model if rev else self._pos_model
@@ -275,12 +275,12 @@ class MorphParser(BaseParser):
     def predict_lemma(self, sentence, inplace=True):
         """Generate lemmata for wforms of the *sentence*.
 
-        :param sentence: sentence in Parsed CONLL-U format; UPOS field must be 
+        :param sentence: sentence in Parsed CoNLL-U format; UPOS field must be 
                          already filled
         :type sentence: list(dict)
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, the new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         cdict = self._cdict
         assert self._lemma_model, \
@@ -309,7 +309,7 @@ class MorphParser(BaseParser):
                       inplace=True):
         """Tag the *sentence* with the FEATS tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format; UPOS and LEMMA
+        :param sentence: sentence in Parsed CoNLL-U format; UPOS and LEMMA
                          fields must be already filled
         :type sentence: list(dict)
         :param joint: if True, use joint FEATS model; elsewise, use separate
@@ -321,7 +321,7 @@ class MorphParser(BaseParser):
         :type feat: str
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         return (
             self._predict_feats_joint if joint else
@@ -435,7 +435,7 @@ class MorphParser(BaseParser):
                 feats_rev=False, inplace=True):
         """Tag the *sentence* with the all available taggers.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param pos_rev: if True, use Reversed POS tagger instead of generic
                         straight one
@@ -445,7 +445,7 @@ class MorphParser(BaseParser):
                           straight one
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         return \
             self.predict_feats(
@@ -462,8 +462,8 @@ class MorphParser(BaseParser):
                           save_to=None):
         """Apply ``self.predict_pos()`` to each element of *sentences*.
 
-        :param sentences: a name of a file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of a file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param rev: if True, use Reversed POS tagger instead of generic
                     straight one
@@ -485,8 +485,8 @@ class MorphParser(BaseParser):
     def predict_lemma_sents(self, sentences=None, inplace=True, save_to=None):
         """Apply ``self.predict_lemma()`` to each element of *sentences*.
 
-        :param sentences: a name of a file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of a file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param inplace: if True, method changes and returns the given
                         sentences themselves; elsewise, the new list of
@@ -506,8 +506,8 @@ class MorphParser(BaseParser):
                             feat=None, inplace=True, save_to=None):
         """Apply ``self.predict_feats()`` to each element of *sentences*.
 
-        :param sentences: a name of a file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of a file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param joint: if True, use joint FEATS model; elsewise, use separate
                       models (default)
@@ -536,8 +536,8 @@ class MorphParser(BaseParser):
                       feats_rev=False, inplace=True, save_to=None):
         """Apply ``self.predict()`` to each element of *sentences*.
 
-        :param sentences: a name of the file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of the file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param pos_rev: if True, use Reversed POS tagger instead of generic
                         straight one

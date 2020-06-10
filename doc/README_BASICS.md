@@ -56,8 +56,8 @@ After create the parser, you need to load traininig data.
 ```python
 mp.load_train_corpus(corpus, append=False, parse=False, test=None, seed=None)
 ```
-Here, **corpus** is a name of file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. Also, it allows one of the
+Here, **corpus** is a name of file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. Also, it allows one of the
 [***Corpuscula***'s corpora wrappers](https://github.com/fostroll/corpuscula/blob/master/doc/README_CORPORA.md)
 here. In that case, the `.train()` part will be used.
 
@@ -141,7 +141,7 @@ mp._load_feats2_models(file_path)
 
 ### Predict and Evaluate
 
-Apart from the separate methods for each *CONLL-U* field (refer the
+Apart from the separate methods for each *CoNLL-U* field (refer the
 corresponding docs above), ***Morra*** have methods for predicting fields and
 evaluating models conjointly. Note, that you must already have trained models
 of all taggers for using those methods.
@@ -153,7 +153,7 @@ Predict the fields of just one sentence:
 sentence = mp.predict(sentence, pos_rev=False, feats_joint=False,
                       feats_rev=False, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **pos_rev**: if `False` (default), use forward POS tagger; backward elsewise.
 
@@ -166,22 +166,22 @@ elsewise.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Predict the fields of the whole corpus:
 ```python
 sentences = mp.predict_sents(sentences=None, pos_rev=False, feats_joint=False,
                              feats_rev=False, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If `None`, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If `None`, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate conjoint prediction:
 ```python
@@ -192,8 +192,8 @@ score = mp.evaluate(gold=None, test=None, pos_rev=False,
 Calculate joint accuracy score of the unidirectional POS, LEMMA and FEATS
 predictions on the **test** corpus against the **gold**. Both **gold** and
 **test** (like any input corpora in any ***Morra*** method) may be a name of
-the file in *CONLL-U* format or list/iterator of sentences in
-*Parsed CONLL-U*.
+the file in *CoNLL-U* format or list/iterator of sentences in
+*Parsed CoNLL-U*.
 
 If **gold** is `None` (default), then loaded *test corpus* is used. If
 **gold** is a ***Corpuscula***'s corpora wrapper, the `.test()` part will be
@@ -228,7 +228,7 @@ sentence = mp.predict2(sentence, pos_backoff=True, pos_repeats=0,
                        feats_joint=False, feats_backoff=True, feats_repeats=0,
                        inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **pos_backoff**: if the result of the bidirectional POS tagger differs from
 the results of both base unidirectional taggers, get one of the bases on the
@@ -254,7 +254,7 @@ FEATS-1 taggers don't concur.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Next method can be used if both joint and separate FEATS-2 models are
 available:
@@ -279,15 +279,15 @@ sentences = mp.predict2_sents(sentences=None, pos_backoff=True, pos_repeats=0,
                               feats_joint=False, feats_backoff=True,
                               feats_repeats=0, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If `None`, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If `None`, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 If both joint and separate FEATS-2 models are available:
 ```python
@@ -298,7 +298,7 @@ sentences = mp.predict3_sents(sentences=None, pos_backoff=True, pos_repeats=0,
 ```
 All params where explained earlier.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate conjoint prediction:
 ```python

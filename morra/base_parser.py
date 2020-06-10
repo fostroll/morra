@@ -214,8 +214,8 @@ class BaseParser:
                      seed=None, silent=False):
         """Split a *corpus* in the given proportion.
 
-        :param corpus: a name of file in CONLL-U format or list/iterator of
-                       sentences in Parsed CONLL-U
+        :param corpus: a name of file in CoNLL-U format or list/iterator of
+                       sentences in Parsed CoNLL-U
         :param split: list of sizes of the necessary *corpus* parts. If values
                       are of int type, they are interpreted as lengths of new
                       corpuses in sentences; if values are float, they are
@@ -309,8 +309,8 @@ class BaseParser:
                           seed=None):
         """Load train corpus and (possibly) create a CorpusDict for it
 
-        :param corpus: a name of file in CONLL-U format or list/iterator of
-                       sentences in Parsed CONLL-U
+        :param corpus: a name of file in CoNLL-U format or list/iterator of
+                       sentences in Parsed CoNLL-U
         :param append: add corpus to already loaded one(s)
         :param parse: extract corpus statistics to CorpusDict right after
                       loading
@@ -364,8 +364,8 @@ class BaseParser:
         """Load development test corpus to validate on during training
         iterations.
 
-        :param corpus: a name of file in CONLL-U format or list/iterator of
-                       sentences in Parsed CONLL-U
+        :param corpus: a name of file in CoNLL-U format or list/iterator of
+                       sentences in Parsed CoNLL-U
         :param append: add corpus to already loaded one(s)
         """
         assert append or not self._test_corpus, \

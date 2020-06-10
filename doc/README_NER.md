@@ -27,18 +27,18 @@ An example of the implementation of the **guess_ne** helper one can find in
 
 ### Loading the Training Data
 
-`MorphParserNE` works with corpora in *CONLL-U* or *Parsed CONLL-U* formats.
+`MorphParserNE` works with corpora in *CoNLL-U* or *Parsed CoNLL-U* formats.
 The NE tags are placed to the MISC field as the value of the `NE` variable
 (E.g.: `NE=Address`).
 
-So, you have to convert your training corpora *CONLL-U* format and put your
+So, you have to convert your training corpora *CoNLL-U* format and put your
 gold NE labels to the MISC field. For conversion, you can use the
 [***Corpuscula***](https://github.com/fostroll/corpuscula)
-[*CONLL-U* support](https://github.com/fostroll/corpuscula/blob/master/doc/README_CONLLU.md).
+[*CoNLL-U* support](https://github.com/fostroll/corpuscula/blob/master/doc/README_CONLLU.md).
 
 Also, you have to accomplish morphological parsing prior the training the NE
 tagger. If you make it with one of ***Morra*** taggers, you don't have to
-worry about *CONLL-U* conversion, because you'll get this format as output of
+worry about *CoNLL-U* conversion, because you'll get this format as output of
 the tagger.
 
 When you have your training corpora prepared, you need to load it into parser.
@@ -163,7 +163,7 @@ Tag just one sentence:
 sentence = mp.predict_ne(sentence, joint=False, rev=False,
                          ne=None, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **joint**: if `True`, use joint NE model; elsewise, use separate models
 (default).
@@ -176,22 +176,22 @@ entities will be tagged.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Tag the whole corpus:
 ```python
 sentences = mp.predict_ne_sents(sentences=None, joint=False, rev=False,
                                 ne=None, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate NE tagging:
 ```python
@@ -200,8 +200,8 @@ score = mp.evaluate_ne(gold=None, test=None, joint=False, rev=False,
 ```
 Calculate the accuracy score of the NE tagging of the **test** corpus
 against the **gold**. Both **gold** and **test** (like any input corpora in
-any ***Morra*** method) may be a name of the file in *CONLL-U* format or
-list/iterator of sentences in *Parsed CONLL-U*.
+any ***Morra*** method) may be a name of the file in *CoNLL-U* format or
+list/iterator of sentences in *Parsed CoNLL-U*.
 
 If **gold** is `None` (default), then loaded *test corpus* is used. If
 **gold** is a ***Corpuscula***'s corpora wrapper, the `.test()` part will be
@@ -231,7 +231,7 @@ sentence = mp.predict_ne2(sentence, joint=False,
                           with_backoff=True, max_repeats=0,
                           ne=None, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **joint**: if `True`, use joint NE-2 model; elsewise, use separate models
 (default).
@@ -251,7 +251,7 @@ entities will be tagged.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 If you have trained bidirectional models of both joint and separate types, you
 may use conjoint tagger that use them together:
@@ -271,15 +271,15 @@ sentences = mp.predict_ne2_sents(sentences=None, joint=False,
                                  with_backoff=True, max_repeats=0,
                                  ne=None, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 If both joint and separate NE-2 models are available:
 ```python
@@ -290,7 +290,7 @@ mp.predict_ne3_sents(sentences=None,
 ```
 All params where explained earlier.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate NE tagging:
 ```python

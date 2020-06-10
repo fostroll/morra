@@ -125,7 +125,7 @@ class MorphParser2(MorphParser):
                      inplace=True):
         """Tag the *sentence* with the POS-2 tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param with_backoff: if result of the tagger differs from both base
                              taggers, get one of the bases on the ground of
@@ -138,7 +138,7 @@ class MorphParser2(MorphParser):
         :type max_repeats: int
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         cdict = self._cdict
         model = self._pos2_model
@@ -217,7 +217,7 @@ class MorphParser2(MorphParser):
                        max_repeats=0, feat=None, inplace=True):
         """Tag the *sentence* with the FEATS-2 tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format; UPOS and LEMMA
+        :param sentence: sentence in Parsed CoNLL-U format; UPOS and LEMMA
                          fields must be already filled
         :type sentence: list(dict)
         :param joint: if True, use joint FEATS-2 model; elsewise, use separate
@@ -236,7 +236,7 @@ class MorphParser2(MorphParser):
         :type feat: str
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         return (
             self._predict_feats2_joint if joint else
@@ -428,7 +428,7 @@ class MorphParser2(MorphParser):
                  inplace=True):
         """Tag the *sentence* with the all available taggers.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :type pos_backoff: if result of POS-2 tagger differs from both its
                            base taggers, get one of the bases on the ground
@@ -452,7 +452,7 @@ class MorphParser2(MorphParser):
         :type feats_repeats: int
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         return \
             self.predict_feats2(
@@ -471,8 +471,8 @@ class MorphParser2(MorphParser):
                            max_repeats=0, inplace=True, save_to=None):
         """Apply ``self.predict_pos2()`` to each element of *sentences*.
 
-        :param sentences: a name of file in CONLL-U format or list/iterator of
-                          sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of file in CoNLL-U format or list/iterator of
+                          sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param with_backoff: if result of the tagger differs from both base
                              taggers, get one of the bases on the ground of
@@ -506,8 +506,8 @@ class MorphParser2(MorphParser):
                              inplace=True, save_to=None):
         """Apply ``self.predict_feats2()`` to each element of *sentences*.
 
-        :param sentences: a name of file in CONLL-U format or list/iterator of
-                          sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of file in CoNLL-U format or list/iterator of
+                          sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param joint: if True, use joint FEATS-2 model; elsewise, use separate
                       models (default)
@@ -546,8 +546,8 @@ class MorphParser2(MorphParser):
                        inplace=True, save_to=None):
         """Apply ``self.predict2()`` to each element of *sentences*.
 
-        :param sentences: a name of file in CONLL-U format or list/iterator of
-                          sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of file in CoNLL-U format or list/iterator of
+                          sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :type pos_backoff: if result of POS-2 tagger differs from both its
                            base taggers, get one of the bases on the ground

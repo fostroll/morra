@@ -221,7 +221,7 @@ class MorphParserNE(BaseParser):
                    inplace=True, no_final_clean=False):
         """Tag the *sentence* with the NE tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param joint: if True, use joint NE model (default); elsewise, use
                       separate models
@@ -232,7 +232,7 @@ class MorphParserNE(BaseParser):
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
         :param no_final_clean: don't search and remove NE from empty nodes
-        :return: tagged sentence in Parsed CONLL-U format
+        :return: tagged sentence in Parsed CoNLL-U format
         """
         return (self._predict_ne_joint if joint else
                 self._predict_ne_separate)(sentence, rev=rev, ne=ne,
@@ -242,7 +242,7 @@ class MorphParserNE(BaseParser):
                     max_repeats=0, ne=None, inplace=True, no_final_clean=False):
         """Tag the *sentence* with the NE-2 tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param joint: if True, use joint NE-2 model (default); elsewise, use
                       separate models
@@ -259,7 +259,7 @@ class MorphParserNE(BaseParser):
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
         :param no_final_clean: don't search and remove NE from empty nodes
-        :return: tagged sentence in Parsed CONLL-U format
+        :return: tagged sentence in Parsed CoNLL-U format
         """
         return (
             self._predict_ne2_joint if joint else
@@ -567,7 +567,7 @@ class MorphParserNE(BaseParser):
                     inplace=True):
         """Tag the *sentence* with the NE-3 tagger.
 
-        :param sentence: sentence in Parsed CONLL-U format
+        :param sentence: sentence in Parsed CoNLL-U format
         :type sentence: list(dict)
         :param with_s_backoff: if result of the separate NE-1 tagger differs
                                from both base taggers, get one of the bases
@@ -581,7 +581,7 @@ class MorphParserNE(BaseParser):
         :type max_j_repeats: int
         :param inplace: if True, method changes and returns the given sentence
                         itself; elsewise, new sentence will be created
-        :return: tagged sentence in Parsed CONLL-U format
+        :return: tagged sentence in Parsed CoNLL-U format
         """
         if not inplace:
             sentence = deepcopy(sentence)
@@ -607,8 +607,8 @@ class MorphParserNE(BaseParser):
                          ne=None, inplace=True, save_to=None):
         """Apply ``self.predict_ne()`` to each element of *sentences*.
 
-        :param sentences: a name of a file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of a file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param joint: if True, use joint NE model (default); elsewise, use
                       separate models
@@ -638,8 +638,8 @@ class MorphParserNE(BaseParser):
                           max_repeats=0, ne=None, inplace=True, save_to=None):
         """Apply ``self.predict_ne2()`` to each element of *sentences*.
 
-        :param sentences: a name of a file in CONLL-U format or list/iterator
-                          of sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of a file in CoNLL-U format or list/iterator
+                          of sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param joint: if True, use joint NE-2 model (default); elsewise, use
                       separate models
@@ -678,8 +678,8 @@ class MorphParserNE(BaseParser):
                           save_to=None):
         """Apply ``self.predict_ne3()`` to each element of *sentences*.
 
-        :param sentences: a name of file in CONLL-U format or list/iterator of
-                          sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of file in CoNLL-U format or list/iterator of
+                          sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param with_s_backoff: if result of the separate NE-1 tagger differs
                                from both base taggers, get one of the bases

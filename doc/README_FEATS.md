@@ -99,7 +99,7 @@ Tag just one sentence:
 sentence = mp.predict_feats(sentence, joint=False, rev=False,
                             feat=None, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **joint**: if `True`, use joint FEATS model; elsewise, use separate models
 (default).
@@ -112,22 +112,22 @@ feats will be tagged.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Tag the whole corpus:
 ```python
 sentences = mp.predict_feats_sents(sentences=None, joint=False, rev=False,
                                    feat=None, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate FEATS tagging:
 ```python
@@ -136,8 +136,8 @@ scores = mp.evaluate_feats(gold=None, test=None, joint=False, rev=False,
 ```
 Calculate the accuracy score of the FEATS tagging of the **test** corpus
 against the **gold**. Both **gold** and **test** (like any input corpora in
-any ***Morra*** method) may be a name of the file in *CONLL-U* format or
-list/iterator of sentences in *Parsed CONLL-U*.
+any ***Morra*** method) may be a name of the file in *CoNLL-U* format or
+list/iterator of sentences in *Parsed CoNLL-U*.
 
 If **gold** is `None` (default), then loaded *test corpus* is used. If
 **gold** is a ***Corpuscula***'s corpora wrapper, the `.test()` part will be
@@ -170,7 +170,7 @@ sentence = mp.predict_feats2(sentence, joint=False,
                              with_backoff=True, max_repeats=0,
                              feat=None, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **joint**: if `True`, use joint FEATS-2 model; elsewise, use separate models
 (default).
@@ -190,7 +190,7 @@ tagged.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 If you have trained bidirectional models of both joint and separate types, you
 may use conjoint tagger that use them together:
@@ -210,15 +210,15 @@ sentence = mp.predict_feats2_sents(sentences=None, joint=False,
                                    with_backoff=True, max_repeats=0,
                                    feat=None, inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 If both joint and separate FEATS-2 models are available:
 ```python
@@ -229,7 +229,7 @@ sentence = mp.predict_feats3_sents(sentences=None,
 ```
 All params where explained earlier.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate FEATS tagging:
 ```python

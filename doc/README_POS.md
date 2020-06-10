@@ -82,29 +82,29 @@ Tag just one sentence:
 ```python
 sentence = mp.predict_pos(sentence, rev=False, inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **rev**: if `False` (default), use forward tagger; if `True`, backward.
 
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Tag the whole corpus:
 ```python
 sentence = mp.predict_pos_sents(sentences=None, rev=False, inplace=True,
                                 save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate POS tagging:
 ```python
@@ -113,8 +113,8 @@ score = mp.evaluate_pos(gold=None, test=None, rev=False, pos=None,
 ```
 Calculate the accuracy score of the POS tagging of the **test** corpus against
 the **gold**. Both **gold** and **test** (like any input corpora in any
-***Morra*** method) may be a name of the file in *CONLL-U* format or
-list/iterator of sentences in *Parsed CONLL-U*.
+***Morra*** method) may be a name of the file in *CoNLL-U* format or
+list/iterator of sentences in *Parsed CoNLL-U*.
 
 If **gold** is `None` (default), then loaded *test corpus* is used. If
 **gold** is a ***Corpuscula***'s corpora wrapper, the `.test()` part will be
@@ -143,7 +143,7 @@ sentence = mp.predict_pos2(sentence,
                            with_backoff=True, max_repeats=0,
                            inplace=True)
 ```
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **with_backoff**: if the result of the bidirectional tagger differs from
 the results of both base unidirectional taggers, get one of the bases on
@@ -157,7 +157,7 @@ don't concur.
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Tag the whole corpus:
 ```python
@@ -165,15 +165,15 @@ sentence = mp.predict_pos2_sents(sentences=None,
                                  with_backoff=True, max_repeats=0,
                                  inplace=True, save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If None, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If None, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate POS tagging:
 ```python

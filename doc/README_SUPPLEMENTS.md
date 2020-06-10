@@ -33,9 +33,9 @@ MorphParser3.split_corpus(corpus, split=[.8, .1, .1], save_split_to=None,
                           seed=None, silent=False)
 ```
 Here, **corpus** is a name of file in
-[*CONLL-U*](https://universaldependencies.org/format.html) format or
+[*CoNLL-U*](https://universaldependencies.org/format.html) format or
 list/iterator of sentences in
-[*Parsed CONLL-U*](https://github.com/fostroll/corpuscula/blob/master/doc/README_PARSED_CONLLU.md)
+[*Parsed CoNLL-U*](https://github.com/fostroll/corpuscula/blob/master/doc/README_PARSED_CONLLU.md)
 
 **split**: `list` of sizes of the necessary **corpus** parts. If values are of
 `int` type, they are interpreted as lengths of new corpuses in sentences; if
@@ -195,7 +195,7 @@ groups of equally voted parsers with maximum number of members. Then, the best
 model will be taken from the group that contains a `MorphParser` which was
 added earlier.
 
-If you want to predict only one exact field of *CONLL-U*, you can pass to
+If you want to predict only one exact field of *CoNLL-U*, you can pass to
 `.add()` the more specific methods. E.g., for the only POS field you may want
 to use the method `.predict_pos2()`:
 ```python
@@ -209,39 +209,39 @@ sentence you can with:
 ```python
 sentence = predict(fields_to_predict, sentence, inplace=True)
 ```
-Here, **fields_to_predict** is a list of *CONLL-U* fields names you want to
+Here, **fields_to_predict** is a list of *CoNLL-U* fields names you want to
 get a prediction for. E.g.: `fields_to_predict=['UPOS', 'LEMMA', 'FEATS]`.
 Note, that these fields must be between the fields that the methods added with
 the `.add()` can predict.
 
-**sentence**: the sentence in *Parsed CONLL-U* format.
+**sentence**: the sentence in *Parsed CoNLL-U* format.
 
 **inplace**: if `True` (default), method changes and returns the given
 **sentence** itself. Elsewise, the new sentence will be created.
 
-Returns the **sentence** tagged, also in *Parsed CONLL-U* format.
+Returns the **sentence** tagged, also in *Parsed CoNLL-U* format.
 
 Predict the fields of the whole corpus:
 ```python
 sentences = predict_sents(fields_to_predict, sentences, inplace=True,
                           save_to=None)
 ```
-**sentences**: a name of the file in *CONLL-U* format or list/iterator of
-sentences in *Parsed CONLL-U*. If `None`, then loaded *test corpus* is used.
+**sentences**: a name of the file in *CoNLL-U* format or list/iterator of
+sentences in *Parsed CoNLL-U*. If `None`, then loaded *test corpus* is used.
 You can specify a ***Corpuscula***'s corpora wrapper here. In that case, the
 `.test()` part will be used.
 
 **save_to**: the name of the file where you want to save the result. Default
 is `None`: we don't want to save.
 
-Returns iterator of tagged **sentences** in *Parsed CONLL-U* format.
+Returns iterator of tagged **sentences** in *Parsed CoNLL-U* format.
 
 Evaluate the ensemble quality:
 ```python
 scores = evaluate(fields_to_evaluate, gold=None, test=None,
                   feat=None, unknown_only=False, silent=False)
 ```
-**fields_to_predict**: a list of *CONLL-U* fields names you want to
+**fields_to_predict**: a list of *CoNLL-U* fields names you want to
 evaluate a prediction for. E.g.: `fields_to_evaluate=['UPOS', 'LEMMA',
 'FEATS]`. Note, that these fields must be between the fields that the methods
 added with the `.add()` can predict.

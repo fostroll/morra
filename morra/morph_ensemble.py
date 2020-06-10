@@ -46,16 +46,16 @@ class MorphEnsemble:
     def predict(self, fields_to_predict, sentence, inplace=True):
         """Predict necessary fields of *sentences*.
 
-        :param fields_to_predict: the list of CONLL-U fields names you want to
+        :param fields_to_predict: the list of CoNLL-U fields names you want to
                                   get a prediction for. E.g.: ['UPOS',
                                   'LEMMA', 'FEATS]. Note, that these fields
                                   must be between the fields that the methods
                                   added with the `.add()` can predict
-        :param sentence: the sentence in *Parsed CONLL-U* format
+        :param sentence: the sentence in *Parsed CoNLL-U* format
         :param inplace: if True (default), method changes and returns the given
                         *sentence** itself. Elsewise, the new sentence will be
                         created
-        :return: tagged *sentence* in Parsed CONLL-U format
+        :return: tagged *sentence* in Parsed CoNLL-U format
         """
         if isinstance(fields_to_predict, str):
             fields_to_predict = [fields_to_predict]
@@ -101,8 +101,8 @@ class MorphEnsemble:
                       save_to=None):
         """Apply ``self.predict()`` to each element of *sentences*.
 
-        :param sentences: a name of file in CONLL-U format or list/iterator of
-                          sentences in Parsed CONLL-U. If None, then loaded
+        :param sentences: a name of file in CoNLL-U format or list/iterator of
+                          sentences in Parsed CoNLL-U. If None, then loaded
                           test corpus is used
         :param inplace: if True, method changes and returns the given
                         sentences themselves; elsewise, new list of sentences
@@ -130,7 +130,7 @@ class MorphEnsemble:
         None, compute the accuracy of the *test* corpus with respect to the
         gold.
 
-        :param fields_to_evaluate: the list of CONLL-U fields names you want to
+        :param fields_to_evaluate: the list of CoNLL-U fields names you want to
                                    evaluate a prediction for. E.g.: ['UPOS',
                                    'LEMMA', 'FEATS]. Note, that these fields
                                    must be between the fields that the methods
