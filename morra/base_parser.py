@@ -218,7 +218,7 @@ class BaseParser:
                        sentences in Parsed CoNLL-U
         :param split: list of sizes of the necessary *corpus* parts. If values
                       are of int type, they are interpreted as lengths of new
-                      corpuses in sentences; if values are float, they are
+                      corpora in sentences; if values are float, they are
                       proportions of a given *corpus*. The types of the
                       *split* values can't be mixed: they are either all int,
                       or all float. The sum of float values must be less or
@@ -229,7 +229,7 @@ class BaseParser:
                               don't save parts to files) or its length must be
                               equal to the length of *split*
         :param silent: if True, suppress output
-        :return: a list of new corpuses
+        :return: a list of new corpora
         """
         assert save_split_to is None or len(save_split_to) == len(split), \
                'ERROR: lengths of split and save_split_to must be equal'

@@ -4,9 +4,8 @@
 ## Supplements
 
 ***Morra*** package contains few additional utility methods that can simplify
-processing of corpuses. Also, it has tools to simplify hyperparameter
-selection and using several trained morphological parsers conjointly in
-ensemble.
+processing of corpora. Also, it has tools to simplify hyperparameter selection
+and using several trained morphological parsers conjointly in ensemble.
 
 ### Corpus processing
 
@@ -38,7 +37,7 @@ list/iterator of sentences in
 [*Parsed CoNLL-U*](https://github.com/fostroll/corpuscula/blob/master/doc/README_PARSED_CONLLU.md)
 
 **split**: `list` of sizes of the necessary **corpus** parts. If values are of
-`int` type, they are interpreted as lengths of new corpuses in sentences; if
+`int` type, they are interpreted as lengths of new corpora in sentences; if
 values are `float`, they are proportions of a given **corpus**. The types of
 the **split** values can't be mixed: they are either all `int`, or all
 `float`.
@@ -52,7 +51,7 @@ must be equal to the length of **split**.
 
 **silent**: if `True`, suppress output.
 
-Returns a list of new corpuses.
+Returns a list of new corpora.
 
 Sometimes, in train corpus, a number of tokens with morphological feats of some
 type is not enough for robust model training. Feats of such types are better
