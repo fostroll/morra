@@ -585,7 +585,7 @@ class MorphParser(BaseParser):
         if gold is None:
             gold = self._test_corpus
         elif (isinstance(gold, type) and issubclass(gold, _AbstractCorpus)) \
-        or isinstance(gold, _AbstractCorpus):
+          or isinstance(gold, _AbstractCorpus):
             gold = gold.test()
         assert gold, 'ERROR: Gold must not be empty'
         corpus_len = len(gold) if isinstance(gold, list) else None
@@ -674,7 +674,7 @@ class MorphParser(BaseParser):
         if gold is None:
             gold = self._test_corpus
         elif (isinstance(gold, type) and issubclass(gold, _AbstractCorpus)) \
-        or isinstance(gold, _AbstractCorpus):
+          or isinstance(gold, _AbstractCorpus):
             gold = gold.test()
         assert gold, 'ERROR: Gold must not be empty'
         corpus_len = len(gold) if isinstance(gold, list) else None
@@ -754,7 +754,7 @@ class MorphParser(BaseParser):
         if gold is None:
             gold = self._test_corpus
         elif (isinstance(gold, type) and issubclass(gold, _AbstractCorpus)) \
-        or isinstance(gold, _AbstractCorpus):
+          or isinstance(gold, _AbstractCorpus):
             gold = gold.test()
         assert gold, 'ERROR: Gold must not be empty'
         corpus_len = len(gold) if isinstance(gold, list) else None
@@ -861,7 +861,7 @@ class MorphParser(BaseParser):
         if gold is None:
             gold = self._test_corpus
         elif (isinstance(gold, type) and issubclass(gold, _AbstractCorpus)) \
-        or isinstance(gold, _AbstractCorpus):
+          or isinstance(gold, _AbstractCorpus):
             gold = gold.test()
         assert gold, 'ERROR: Gold must not be empty'
         corpus_len = len(gold) if isinstance(gold, list) else None
