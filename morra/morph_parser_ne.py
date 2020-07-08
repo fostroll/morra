@@ -773,8 +773,7 @@ class MorphParserNE(BaseParser):
                             cc += 1
                         elif not gold_ne or (ne and gold_ne != ne):
                             w1 += 1
-                        elif not test_ne \
-                          or (ne and test_ne != ne):
+                        elif not test_ne or (ne and test_ne != ne):
                             w2 += 1
                         else:
                             w += 1
