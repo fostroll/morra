@@ -271,7 +271,7 @@ class BaseParser:
         if isinstance(corpus, str):
             corpus = cls.load_conllu(corpus, silent=silent)
         return (s[0] if not asis and isinstance(s, tuple) else s
-                   for s in corpus)
+                    for s in corpus)
 
     def _predict_sents(self, sentences, predict_method, save_to=None):
         silent_save = False
