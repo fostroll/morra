@@ -791,9 +791,9 @@ class MorphParserNE(BaseParser):
                 print(header + ' total: {}'.format(n), file=LOG_FILE)
                 print(sp   + ' correct: {}'.format(c), file=LOG_FILE)
                 print(sp   + '   wrong: {} [{} excess / {} absent{}]'
-                                  .format(n - c, w1, w2, '' if ne else
-                                                         ' / {} wrong type'
-                                                             .format(w)),
+                                 .format(n - c, w1, w2, '' if ne else
+                                                        ' / {} wrong type'
+                                                            .format(w)),
                       file=LOG_FILE)
                 print(sp   + 'Accuracy: {}'.format(c / n if n > 0 else 1.))
                 print('[Total accuracy: {}]'.format(cc / nn if nn > 0 else 1.))
