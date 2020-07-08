@@ -199,15 +199,21 @@ class BaseParser:
     def load_conllu(*args, **kwargs):
         """Wrapper for ``Conllu.load()``"""
         silent = kwargs.pop('silent', None)
+        log_file = kwargs.pop('log_file', None)
         return Conllu.load(*args, **kwargs,
-                           log_file=None if silent else LOG_FILE)
+                           log_file=None if silent else
+                                    log_file if log_file else
+                                    LOG_FILE)
 
     @staticmethod
     def save_conllu(*args, **kwargs):
         """Wrapper for ``Conllu.save()``"""
         silent = kwargs.pop('silent', None)
+        log_file = kwargs.pop('log_file', None)
         return Conllu.save(*args, **kwargs,
-                           log_file=None if silent else LOG_FILE)
+                           log_file=None if silent else
+                                    log_file if log_file else
+                                    LOG_FILE)
 
     @staticmethod
     def split_corpus(corpus, split=[.8, .1, .1], save_split_to=None,
