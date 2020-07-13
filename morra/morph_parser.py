@@ -792,7 +792,7 @@ class MorphParser(BaseParser):
                         nf = cf = 0
                         gold_feats = gold_token['FEATS']
                         test_feats = test_sent[j]['FEATS']
-                        for feat in [feat] if feat else set(
+                        for feat_ in [feat] if feat else set(
                             [*gold_feats.keys(), *test_feats.keys()]
                         ):
                             gold_feat = gold_feats.get(feat_)
