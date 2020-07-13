@@ -757,8 +757,8 @@ def _evaluate(test_corpus, gold_corpus, what=None, feat=None, silent=False):
             if isinstance(sent, tuple):
                 sent = sent[0]
             for token in sent:
-                for feat, feat_val in token['FEATS'].items():
-                    feat_vals.setdefault(feat, set()).add(feat_val)
+                for feat_, feat_val in token['FEATS'].items():
+                    feat_vals.setdefault(feat_, set()).add(feat_val)
     if not silent:
         print('Evaluate', file=LOG_FILE)
     n = c = nt = ct = 0
