@@ -749,8 +749,8 @@ def _evaluate(test_corpus, gold_corpus, what=None, feat=None, silent=False):
     if what:
         what = what.lower()
     assert what in [None, 'lemma', 'upos', 'feats']
-    gold_corpus = list(MorphParser._get_corpus(gold_corpus))
-    test_corpus = list(MorphParser._get_corpus(test_corpus))
+    gold_corpus = list(BaseParser._get_corpus(gold_corpus))
+    test_corpus = list(BaseParser._get_corpus(test_corpus))
     feat_vals = {}
     for corpus in [gold_corpus, test_corpus]:
         for sent in corpus:
