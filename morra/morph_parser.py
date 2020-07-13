@@ -772,7 +772,6 @@ class MorphParser(BaseParser):
         progress_check_step = min(int(corpus_len / 100), 1000) \
                                   if corpus_len else 100
         cdict = self._cdict
-        feat_vals = cdict.get_feats()
         i = -1
         for i, gold_sent in enumerate(gold):
             if not silent and not i % progress_check_step:
@@ -793,7 +792,9 @@ class MorphParser(BaseParser):
                         nf = cf = 0
                         gold_feats = gold_token['FEATS']
                         test_feats = test_sent[j]['FEATS']
-                        for feat_ in [feat] if feat else feat_vals:
+                        for feat in [feat] if feat else set(
+                            [*gold_feats.keys(), *test_feats.keys()]
+                        ):
                             gold_feat = gold_feats.get(feat_)
                             test_feat = test_feats.get(feat_)
                             if gold_feat or test_feat:
