@@ -23,7 +23,7 @@ FEATS_GENDER_F = 'Fem'
 names_db = os.environ.get('NAMES_DB') or 'names.pickle'
 surnames_db = os.environ.get('SURNAMES_DB') or 'surnames.pickle'
 _names = Items(restore_from=names_db)
-_surnames = Items(restore_from=names_db)
+_surnames = Items(restore_from=surnames_db)
 re_initial = re.compile('^[A-ZЁА-Я]\.$')
 ma_parse = MorphAnalyzer().parse
 
