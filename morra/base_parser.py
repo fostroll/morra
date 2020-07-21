@@ -192,8 +192,8 @@ class BaseParser:
     def _save_cdict(self, file_path):
         self._cdict.backup_to(file_path)
 
-    def _load_cdict(self, file_path):
-        self._cdict.restore_from(file_path)
+    def _load_cdict(self, file_path, log_file=LOG_FILE):
+        self._cdict.restore_from(file_path, log_file=log_file)
 
     @staticmethod
     def load_conllu(*args, **kwargs):
