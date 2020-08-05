@@ -258,8 +258,8 @@ the train corpus (detected by **cdict** passed to constructor).
 **silent**: if `True`, suppress output.
 
 Return a `tuple` of accuracy **scores** of the ensemble against the
-**gold**:<br/>
+**gold**:<br />
 1. wrt tokens: the tagging of the whole token may be either correct or
-not.<br/>
+not.<br />
 2. wrt tags: sum of correctly detected tags to sum of all tags that are
 non-empty in either **gold** or retagged sentences.
